@@ -1,4 +1,10 @@
-# Python OOP 실습 환경 설치 가이드
+# Object-Oriented Programming 2026 (3168) 실습 환경 설치 가이드
+
+> [English version](setup_guide_en.md)
+
+본 저장소는 **Object-Oriented Programming 2026 (3168)** 수업의 실습 자료입니다.
+
+교재의 원본 코드는 Python 3.x 초기 버전 기준으로 작성되어 있어, 현재 환경에서 일부 패키지 및 문법의 **버전 호환 문제**가 발생합니다. 이를 해결하기 위해 실습 환경과 예제 코드를 Python 3.9 기준으로 재구성하였습니다.
 
 > Windows 11 + VSCode 1.107 기준
 
@@ -33,6 +39,7 @@ conda activate OOP
 3. 다음 확장 프로그램을 검색하여 설치합니다:
    - **Python** (Microsoft) — Python 언어 지원
    - **Pylance** (Microsoft) — 코드 자동완성 및 타입 검사
+   - **Jupyter** (Microsoft) — Jupyter Notebook 지원 (`.ipynb` 파일 실행)
 
 ---
 
@@ -48,10 +55,10 @@ conda activate OOP
 
 ---
 
-## Step 4: 교재 저장소 clone 및 의존성 설치
+## Step 4: 실습 저장소 clone 및 의존성 설치
 
 1. VSCode에서 터미널을 엽니다 (`Ctrl + ~`).
-2. 작업 디렉토리로 이동한 후 저장소를 clone합니다:
+2. 작업 디렉토리로 이동한 후 본 실습 저장소를 clone합니다:
 
 ```bash
 git clone https://github.com/PacktPublishing/Python-Object-Oriented-Programming---4th-edition.git
@@ -62,8 +69,18 @@ git clone https://github.com/PacktPublishing/Python-Object-Oriented-Programming-
 ```bash
 conda activate OOP
 conda install beautifulsoup4 pytest pillow -y
-python -m pip install tox
+pip install tox
 ```
+
+4. Jupyter Notebook 실습을 위해 `ipykernel`을 설치하고 커널을 등록합니다:
+
+```bash
+conda install ipykernel -y
+python -m ipykernel install --user --name OOP --display-name "Python 3 (OOP)"
+```
+
+> VSCode에서 `.ipynb` 파일을 열면 우측 상단의 커널 선택에서 **Python 3 (OOP)** 를 선택하세요.
+> VSCode 확장 프로그램 **Jupyter** (Microsoft)가 설치되어 있어야 합니다.
 
 ---
 
@@ -83,6 +100,23 @@ pytest tests/test_setup.py -v
 
 ---
 
+## 프로젝트 구조
+
+```
+OOP_2026_Practice/
+├── docs/              # 설치 가이드 등 문서
+├── tests/             # 환경 검증 테스트
+├── ch_01/             # Chapter 1 실습
+│   ├── src/
+│   └── tests/
+├── ch_02/             # Chapter 2 실습
+│   ├── src/
+│   └── tests/
+└── ...
+```
+
+---
+
 ## 문제 해결
 
 | 증상 | 해결 방법 |
@@ -91,3 +125,12 @@ pytest tests/test_setup.py -v
 | `conda`가 인식되지 않음 | Anaconda Prompt 사용 또는 시스템 PATH에 conda 경로 추가 |
 | VSCode에서 인터프리터가 안 보임 | VSCode 재시작 후 다시 시도 |
 | `import pytest` 실패 | `conda activate OOP` 후 `conda install pytest -y` |
+
+---
+
+## 출처
+
+본 실습 자료는 아래 교재를 기반으로 작성되었습니다:
+
+- **Python Object-Oriented Programming, 4th Edition** — Steven F. Lott, Dusty Phillips (Packt Publishing)
+- 원본 코드 저장소: [PacktPublishing/Python-Object-Oriented-Programming---4th-edition](https://github.com/PacktPublishing/Python-Object-Oriented-Programming---4th-edition)
