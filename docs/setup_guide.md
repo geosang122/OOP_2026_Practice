@@ -115,7 +115,8 @@ python -m ipykernel install --user --name OOP --display-name "Python 3 (OOP)"
 4. 하단 상태 표시줄에 선택한 인터프리터가 표시되는지 확인합니다.
 
 > 목록에 보이지 않으면 "Enter interpreter path"를 선택하고 conda 환경 경로를 직접 입력합니다:
-> `C:\Users\<사용자명>\miniconda3\envs\OOP\python.exe`
+> - Miniconda: `C:\Users\<사용자명>\miniconda3\envs\OOP\python.exe`
+> - Anaconda: `C:\Users\<사용자명>\anaconda3\envs\OOP\python.exe`
 
 > `.ipynb` 파일을 열면 우측 상단의 커널 선택에서 **Python 3 (OOP)** 를 선택하세요.
 
